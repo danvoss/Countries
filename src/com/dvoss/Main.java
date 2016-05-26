@@ -22,8 +22,10 @@ public class Main {
             for (Country cntry : countries) {
                 if (!map.containsKey(String.valueOf(country.name.charAt(0)))) {
                     map.put(String.valueOf(country.name.charAt(0)), new ArrayList<>());
-                    }
-
+                }
+                else {
+                    countries.add(country);
+                }
             }
         }
 
