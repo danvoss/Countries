@@ -31,9 +31,13 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         // if not a single letter, throw exception
         String letter = scanner.nextLine();
-        File c = new File("&s_countries.txt\n", letter);
+        File c = new File(letter + "_countries.txt");
         FileWriter fw = new FileWriter(c);
-        //fw.write();
+        ArrayList<Country> list = map.get(letter);
+        fw.write(list.toString());
+        fw.close();
+
+        //System.out.println(map.get(letter));
 
     }
 }
