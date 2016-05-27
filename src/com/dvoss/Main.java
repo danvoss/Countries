@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
 
         HashMap<String, ArrayList<Country>> map = new HashMap<>();
         File f = new File("countries.txt");
@@ -31,13 +31,16 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         // if not a single letter, throw exception
         String letter = scanner.nextLine();
-        File c = new File(letter + "_countries.txt");
-        FileWriter fw = new FileWriter(c);
-        ArrayList<Country> list = map.get(letter);
-        fw.write(list.toString());
-        fw.close();
-
+        if (letter.length() != 1) {
+            throw new Exception("Please type a single letter.");
+        }
+        else {
+            File c = new File(letter + "_countries.txt");
+            FileWriter fw = new FileWriter(c);
+            ArrayList<Country> list = map.get(letter);
+            fw.write(list.toString());
+            fw.close();
+        }
         //System.out.println(map.get(letter));
-
     }
 }
