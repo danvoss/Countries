@@ -1,5 +1,7 @@
 package com.dvoss;
 
+import jodd.json.JsonSerializer;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -39,6 +41,13 @@ public class Main {
             ArrayList<Country> list = map.get(letter);
             fw.write(list.toString());
             fw.close();
+
+            File j = new File(letter + "_countries.json");
+            JsonSerializer serializer = new JsonSerializer();
+            String json = serializer.serialize(list);
+            FileWriter fwJson = new FileWriter(j);
+            fwJson.write(json);
+            fwJson.close();
         }
     }
 
