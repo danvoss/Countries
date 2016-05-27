@@ -20,19 +20,12 @@ public class MainTest {
         Country testCountry = testCountries.get(0);
         assertTrue(testCountry.name.equals("afghanistan"));
 
+        ArrayList<Country> testCountriesB = map.get("b");
+        Country testCountryB = testCountriesB.get(0);
+        assertTrue(testCountryB.name.equals("bahamas"));
 
-        //System.out.println(map.get("a"));
-
-//        assertTrue(map.get("a").equals("afghanistan"));
-//        assertTrue(map.get("b").equals("bahamas"));
-//        assertTrue(map.get("c").equals("cambodia"));
-    }
-
-    @Test
-    public void readInputWriteFile() throws Exception {
-        HashMap<String, ArrayList<Country>> map = new HashMap<>();
-        Main.readInputWriteFile(map);
-        //assertTrue();
-
+        ArrayList<Country> testCountriesC = map.get("c");
+        Country testCountryC = testCountriesC.get(0);
+        assertTrue(testCountryC.name.equals("cambodia"));
     }
 }
